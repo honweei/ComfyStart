@@ -1,4 +1,3 @@
-```markdown
 # ComfySetup
 
 A one-click setup tool for deploying and managing ComfyUI with FLUX support.
