@@ -59,9 +59,9 @@ if OPTIONS['INSTALL_COMFYUI_MANAGER']:
 
 # Install FLUX-API node if the option is selected
 if OPTIONS['INSTALL_FLUX_API']:
-    if not Path(f"{WORKSPACE}/custom_nodes/comfy-flux").exists():
+    if not Path(f"{WORKSPACE}/custom_nodes/comfyscope").exists():
         run_command(f"cd {WORKSPACE}/custom_nodes && git clone https://gitee.com/honwee/comfyscope.git", "Step 5/8: Installing FLUX-API node")
-    run_command(f"cd {WORKSPACE}/custom_nodes/comfy-flux && git pull", "Updating FLUX-API node")
+    run_command(f"cd {WORKSPACE}/custom_nodes/comfyscope && git pull", "Updating FLUX-API node")
 
 # Install custom nodes dependencies if the option is selected
 if OPTIONS['INSTALL_CUSTOM_NODES_DEPENDENCIES']:
