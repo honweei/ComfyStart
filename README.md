@@ -1,93 +1,71 @@
-# ComfySetup
 
-A one-click setup tool for deploying and managing ComfyUI with FLUX support.
 
-## Table of Contents
+# ComfyUI Installation and Configuration Script
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Downloads](#model-downloads)
-- [Error Handling](#error-handling)
-- [Contribution](#contribution)
-- [License](#license)
-
-## Introduction
-
-ComfySetup is an automated tool designed to simplify the deployment and management of ComfyUI, a popular interface for machine learning tasks. This tool integrates FLUX nodes, handles model downloads, and includes error handling and progress tracking to ensure a smooth setup experience.
+This script automates the installation and configuration of ComfyUI, including various plugins, models, and workflows. It is designed to streamline the setup process, especially for users who frequently need to set up new environments.
 
 ## Features
 
-- **Automated Setup**: One-click setup for ComfyUI, including FLUX node installation.
-- **Error Handling**: Built-in error detection and reporting to ensure reliable deployment.
-- **Progress Tracking**: Step-by-step progress updates during installation and setup.
-- **Model Management**: Automatically download and organize essential models for ComfyUI.
-- **Cloudflare Integration**: Seamless integration with cloudflared for easy web access.
+- Install and update ComfyUI
+- Install and configure FLUX, FLUX-API, and ComfyUI Manager
+- Install Chinese translation plugins for ComfyUI
+- Download models and workflows based on configuration
+- Flexible configuration through `config.json`
 
-## Requirements
+## Prerequisites
 
-- Python 3.10 or higher
-- Docker (optional for containerized deployment)
+- Python 3.8 or higher
 - Git
+- Virtualenv
 
 ## Installation
 
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ComfySetup.git
-   cd ComfySetup
+   git clone https://github.dev/honweei/ComfyStart.git
+   cd ComfyStart
    ```
 
-2. **Install necessary dependencies**:
+2. Install Python dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the setup script**:
+3. Configure the installation by editing `config.json`:
+   - `UPDATE_COMFY_UI`: Whether to update ComfyUI.
+   - `INSTALL_COMFYUI_MANAGER`: Whether to install ComfyUI Manager.
+   - `INSTALL_CUSTOM_NODES_DEPENDENCIES`: Whether to install custom node dependencies.
+   - `INSTALL_FLUX`: Whether to install the FLUX-GGUF node.
+   - `INSTALL_FLUX_API`: Whether to install the FLUX-API node.
+   - `DOWNLOAD_MODELS`: Whether to download models.
+   - `MODELS`: List of models to download.
+   - `WORKFLOWS`: List of workflows to download.
+
+4. Run the script:
    ```bash
-   python3 comfy_start.py
+   python comfy_start.py
    ```
 
-## Usage
+5. To download models later, run:
+   ```bash
+   python comfy_start.py down
+   ```
 
-After running the setup script, ComfyUI will be fully deployed with the necessary FLUX nodes and models.
+## Configuration
 
-- To start ComfyUI:
-  ```bash
-  python3 main.py --dont-print-server
-  ```
+- **config.json**: This file contains all the configurations needed for installation, including models and workflows to download. Make sure to update this file according to your requirements.
 
-- To access the UI via Cloudflare:
-  - The script will provide a URL after launching the UI. Simply copy and paste it into your browser.
+## Requirements
 
-## Model Downloads
+Refer to the `requirements.txt` file for all the necessary Python packages.
 
-This tool automatically downloads and organizes the following models:
+## Notes
 
-- **FLUX1-DEV**: FLUX.1-dev-gguf
-- **T5-XXL Encoder**: t5xxl_fp16.safetensors
-- **CLIP-L Encoder**: clip_l.safetensors
-- **VAE Model**: ae.safetensors
-
-You can modify the script to include additional models or adjust the download paths as needed.
-
-## Error Handling
-
-The setup script includes error handling to ensure that any issues encountered during installation or setup are clearly reported. If an error occurs, the script will terminate and print a detailed message to help diagnose the problem.
-
-## Contribution
-
-We welcome contributions! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with a detailed explanation of your changes.
-
-Please make sure to follow the project's coding standards and include tests for new features.
+- The script supports both GitHub and Gitee for downloading repositories, depending on the user's location.
+- The script will automatically detect if ComfyUI is already installed and skip the installation steps if so.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ```
+

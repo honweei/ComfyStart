@@ -1,1 +1,6 @@
 gguf
+plaintext
+requests>=2.26.0
+virtualenv>=20.7.2
+subprocess32>=3.5.4
+pathlib2>=2.3.6
