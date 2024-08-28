@@ -1,0 +1,72 @@
+{
+    "UPDATE_COMFY_UI": true,
+    "INSTALL_COMFYUI_MANAGER": true,
+    "INSTALL_CUSTOM_NODES_DEPENDENCIES": true,
+    "INSTALL_FLUX": true,
+    "INSTALL_FLUX_API": true,
+    "DOWNLOAD_MODELS": true,
+    "MODELS": {
+        "FLUX1_DEV_FP8": {
+            "enabled": true,
+            "command": "modelscope download --model=AI-ModelScope/flux-fp8 --local_dir ./models/unet/ flux1-dev-fp8.safetensors",
+            "description": "Downloading FLUX1-DEV FP8 model",
+            "file_path": "./models/unet/flux1-dev-fp8.safetensors"
+        },
+        "CLIP_L_ENCODER": {
+            "enabled": true,
+            "command": "modelscope download --model=AI-ModelScope/flux_text_encoders --local_dir ./models/clip/ clip_l.safetensors",
+            "description": "Downloading CLIP-L encoder",
+            "file_path": "./models/clip/clip_l.safetensors"
+        },
+        "T5_XXL_FP8_ENCODER": {
+            "enabled": false,
+            "command": "modelscope download --model=AI-ModelScope/flux_text_encoders --local_dir ./models/clip/ t5xxl_fp8_e4m3fn.safetensors",
+            "description": "Downloading T5-XXL FP8 encoder",
+            "file_path": "./models/clip/t5xxl_fp8_e4m3fn.safetensors"
+        },
+        "VAE_MODEL": {
+            "enabled": true,
+            "command": "modelscope download --model=AI-ModelScope/FLUX.1-dev --local_dir ./models/vae/ ae.safetensors",
+            "description": "Downloading VAE model",
+            "file_path": "./models/vae/ae.safetensors"
+        },
+        "ARAMINTA_K_FLUX_KODA_LORA": {
+            "enabled": true,
+            "command": "modelscope download --model=FluxLora/flux-koda --local_dir ./models/loras/ araminta_k_flux_koda.safetensors",
+            "description": "Downloading Araminta K Flux Koda LoRA",
+            "file_path": "./models/loras/araminta_k_flux_koda.safetensors"
+        },
+        "BLACK_MYTH_WUKONG_LORA": {
+            "enabled": false,
+            "command": "modelscope download --model=FluxLora/Black-Myth-Wukong-FLUX-LoRA --local_dir ./models/loras/ pytorch_lora_weights.safetensors",
+            "description": "Downloading Black Myth Wukong LoRA",
+            "file_path": "./models/loras/pytorch_lora_weights.safetensors"
+        },
+        "FLUX1_WUKONG_LORA": {
+            "enabled": true,
+            "command": "modelscope download --model=FluxLora/FLUX1_wukong_lora --local_dir ./models/loras/ FLUX1_wukong_lora.safetensors",
+            "description": "Downloading FLUX1 Wukong LoRA",
+            "file_path": "./models/loras/FLUX1_wukong_lora.safetensors"
+        },
+        "FLUX_IP_ADAPTER": {
+            "enabled": true,
+            "command": "modelscope download --model=FluxLora/flux-ip-adapter --local_dir ./models/xlabs/ipadapters/ flux-ip-adapter.safetensors",
+            "description": "Downloading Flux IP Adapter",
+            "file_path": "./models/xlabs/ipadapters/flux-ip-adapter.safetensors"
+        }
+    },
+    "WORKFLOWS": {
+        "workflow_flux_lora_simple": {
+            "url": "https://modelscope.oss-cn-beijing.aliyuncs.com/resource/workflow-flux-lora-simple.json",
+            "filename": "workflow-flux-lora-simple.json"
+        },
+        "workflow_flux_lora_wukong": {
+            "url": "https://modelscope.oss-cn-beijing.aliyuncs.com/resource/workflow-flux-lora-wukong.json",
+            "filename": "workflow-flux-lora-wukong.json"
+        },
+        "ip_adapter_workflow": {
+            "url": "https://modelscope.oss-cn-beijing.aliyuncs.com/resource/ip_adapter_workflow.json",
+            "filename": "ip_adapter_workflow.json"
+        }
+    }
+}
