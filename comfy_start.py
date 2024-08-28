@@ -159,9 +159,7 @@ else:
             completed_steps.append("comfyui_cloned")
         else:
             if not Path(workspace).exists():
-                run_command(f"git clone {GIT_REPO_COMFYUI} {workspace}", "
-
-Cloning ComfyUI repository")
+                run_command(f"git clone {GIT_REPO_COMFYUI} {workspace}", "Cloning ComfyUI repository")
             else:
                 run_command(f"cd {workspace}", "Changing directory to ComfyUI")
                 if not is_step_done("comfyui_updated"):
